@@ -5,12 +5,35 @@
     <title>My 8-Bit Life</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="welcome-overlay" onclick="closeWelcomeCard(event)">
+        <div class="welcome-card">
+            <h1>Welcome to <br> My 8-Bit Life!</h1><br>
+            <p>Click on the objects in the room to learn more about them.</p>
+            <button onclick="closeWelcomeCard()">Enter</button>
+        </div>
+    </div>
     <div class="pixel-room">
-        <button class="object-button" id="poodle-button" onclick="alert('You found a poodle!')"></button>
-        <Button class="object-button" id="guitar-button" onclick="alert('You found a guitar!')"></Button>
-        <Button class="object-button" id="me-button" onclick="alert('You found Jessica!')"></Button>
+        <button class="object-button" id="poodle-button" onclick="openCard('poodle')"></button>
+        <Button class="object-button" id="guitar-button" onclick="openCard('guitar')"></Button>
+        <Button class="object-button" id="me-button" onclick="openCard('me')"></Button>
+    </div>
+
+    <div class="card-overlay" onclick="closeCard(event)">
+    
+        <div class="card" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeCard()">x</span>
+            
+            <div id="card-content">
+                <h2 id="card-title"></h2>
+                <div class="card-img-container">
+                    <img id="card-image" src="" alt="pixel asset">
+                </div>
+                <p id="card-description"></p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
